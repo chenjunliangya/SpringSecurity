@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mb.mbqx.mapper.UserMapper">
+
+    <select id="getUserAuthorityList" resultType="string">
+        SELECT T3.AUTHORITY FROM USER_ROLE T1
+         LEFT JOIN ROLE_AUTHORITY T2 ON T1.ROLE_ID = T2.ROLE_ID
+         LEFT JOIN AUTHORITY T3 ON T2.AUTHORITY_ID = T3.ID
+        WHERE T1.USER_ID = #{userId}
+    </select>
+
+    <select id="getAuthorityList" resultType="string">
+        SELECT AUTHORITY FROM AUTHORITY
+    </select>
+
+
+
+</mapper>
